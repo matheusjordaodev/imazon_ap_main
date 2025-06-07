@@ -1,90 +1,148 @@
-/* assets/styles.css */
-
-/* Estilos gerais */
+/* ------------------------------------------
+   ESTILOS GERAIS 
+------------------------------------------- */
 body {
-    background-color: #f3f3f3dc;
+    font-family: 'Roboto', Arial, sans-serif; /* Fonte moderna */
+    background-color: #f8f9fa; /* Cor de fundo suave recomendada */
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
 }
 
-/* Estilo para os blocos de gráficos e mapas */
+/* ------------------------------------------
+   CARDS E CONTAINERS
+------------------------------------------- */
+.card,
 .graph-block {
+    border-radius: 10px !important; /* Bordas arredondadas modernas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    border: none; /* Remove borda padrão */
 }
-
-.custom {
-    font-size: 10px; /* Ajuste o tamanho da fonte conforme necessário */
-    padding: 5px 10px; /* Ajuste o padding conforme necessário */
-}
-
-/* Estilo para o título */
 .title-card {
-    border-radius: 15px;  /* Borda suavizada */
-    background-color: #ffffff;
-    padding: 10px;
+    background-color: #fff;
+    border-radius: 15px !important;
+    padding: 20px 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
 }
 
-/* Estilo para o botão de remover filtros */
-.float-right {
-    margin-left: auto;  /* Empurrar o botão para o canto direito */
+/* ------------------------------------------
+   BOTÕES
+------------------------------------------- */
+.custom-button, .btn, .dbc-btn {
+    border-radius: 20px !important;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }
-
-/* Ajuste de margem entre os gráficos */
-.mb-4 {
-    margin-bottom: 20px;
+.custom-button:hover, .btn:hover, .dbc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-
-/* Responsividade adicional para evitar sobreposição em modo retrato */
-@media (max-width: 1200px) {
-    .graph-block {
-        margin-right: 0;
-        margin-left: 0;
+@media (max-width: 768px) {
+    .custom-button, .btn, .dbc-btn {
+        font-size: 7px;
+        padding: 3px 7px;
+        margin-bottom: 5px;
+        width: 100%;
     }
 }
 
-@media (max-width: 768px) {
+/* ------------------------------------------
+   DROPDOWNS
+------------------------------------------- */
+.Select-control, .VirtualizedSelectFocusedOption, .Select--single {
+    border-radius: 8px !important;
+}
+
+/* ------------------------------------------
+   GRÁFICOS
+------------------------------------------- */
+.graph-block {
+    padding: 15px;
+    border-radius: 10px !important;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 1200px), (max-width: 768px) {
     .graph-block {
-        margin-right: 0;
-        margin-left: 0;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
         padding: 10px;
         height: auto;
     }
-
     .graph-block .dash-graph {
         height: 100%;
     }
 }
-
 @media (max-width: 576px) {
     .graph-block {
         height: auto;
     }
 }
-
-@media (max-width: 768px) {
-    .custom-button {
-        font-size: 7px; /* Reduz o tamanho da fonte em telas menores */
-        padding: 3px 7px; /* Reduz o padding em telas menores */
-        margin-bottom: 5px; /* Adiciona margem inferior para espaçamento entre botões em colunas */
-        width: 100%; /* Faz os botões ocuparem 100% da largura da coluna */
+/* Fonte dos gráficos em dispositivos menores */
+@media (max-width: 768px), (max-width: 576px) {
+    .plotly .main-svg text {
+        font-size: 4px !important;
     }
 }
 
-/* Ajustes de fontes para diferentes tamanhos de tela */
-@media (max-width: 768px) {
-    .plotly .main-svg text {
-        font-size: 4px !important; /* Ajuste o tamanho conforme necessário */
-    }
+/* ------------------------------------------
+   TABELAS
+------------------------------------------- */
+.table, .dbc-table, .dash-table-container {
+    border-radius: 10px !important;
+    overflow: hidden;
+    font-size: 14px;
+    background-color: #fff;
+}
+.table thead th, .dbc-table thead th, .dash-table-container .dash-header {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f7f7fa;
 }
 
-@media (max-width: 576px) {
-    .plotly .main-svg text {
-        font-size: 4px !important; /* Ajuste o tamanho conforme necessário */
+/* ------------------------------------------
+   MODAIS
+------------------------------------------- */
+.modal-content, .dbc-modal-content {
+    border-radius: 15px !important;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.modal-header, .dbc-modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.modal-footer, .dbc-modal-footer {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* ------------------------------------------
+   CLASSES AUXILIARES & RESPONSIVIDADE
+------------------------------------------- */
+.float-right {
+    margin-left: auto;
+}
+.mb-4 {
+    margin-bottom: 20px !important;
+}
+.custom {
+    font-size: 10px;
+    padding: 5px 10px;
+}
+
+/* ------------------------------------------
+   UTILITÁRIOS BOOTSTRAP/DASH
+------------------------------------------- */
+@media (max-width: 1200px) {
+    .graph-block {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
     }
 }
